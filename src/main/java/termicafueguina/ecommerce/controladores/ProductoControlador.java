@@ -260,6 +260,10 @@ public class ProductoControlador {
                 pdfPCell9.setVerticalAlignment(Element.ALIGN_CENTER);
                 pdfPCell6.setHorizontalAlignment(Element.ALIGN_CENTER);
                 pdfPCell6.setVerticalAlignment(Element.ALIGN_CENTER);
+
+                pdfPCell5.setBorder(Rectangle.TOP | Rectangle.BOTTOM | Rectangle.LEFT | Rectangle.RIGHT);
+                pdfPCell5.setBorderColor(Color.BLACK);
+                pdfPCell5.setFixedHeight(40f);
             }
             for (OrdenProductoM2 elemento : productoPesos) {
 
