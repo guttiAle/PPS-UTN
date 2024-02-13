@@ -312,6 +312,11 @@ public class ProductoControlador {
                 pdfPCell6.setBorder(Rectangle.TOP | Rectangle.BOTTOM | Rectangle.LEFT | Rectangle.RIGHT);
                 pdfPCell6.setBorderColor(Color.BLACK);
                 pdfPCell6.setFixedHeight(40f);
+
+                pdfPTable.addCell(pdfPCell5);
+                pdfPTable.addCell(pdfPCell7);
+                pdfPTable.addCell(pdfPCell9);
+                pdfPTable.addCell(pdfPCell6);
             }
         } catch (Exception e) {
             e.printStackTrace();
