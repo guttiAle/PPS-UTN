@@ -21,6 +21,8 @@ public class Cliente {
     private String telefono;
     private String contrasena;
 
+    @OneToMany(mappedBy="cliente", fetch=FetchType.EAGER)
+    private Set<Orden> ordenes = new HashSet<>();
 
     //CONSTRUCTORES
     public Cliente(){}
@@ -36,5 +38,29 @@ public class Cliente {
         this.contrasena = contrasena;
     }
 
+    //GETTERS
+    public long getId() {return id;}
+    public String getNombre() {return nombre;}
+    public String getApellido() {return apellido;}
+    public String getEmail() {return email;}
+    public String getCalle() {return calle;}
+    public String getCiudad() {return ciudad;}
+    public int getCodPostal() {return codPostal;}
+    public String getTelefono() {return telefono;}
+    public String getContrasena(){return  contrasena;}
+    public Set<Orden> getOrdenes() {return ordenes;}
+
+    //SETTERS
+    public void setNombre(String nombre) {this.nombre = nombre;}
+    public void setApellido(String apellido) {this.apellido = apellido;}
+    public void setEmail(String email) {this.email = email;}
+    public void setCalle(String calle) {this.calle = calle;}
+    public void setCiudad(String ciudad) {this.ciudad = ciudad;}
+    public void setCodPostal(int codPostal) {this.codPostal = codPostal;}
+    public void setTelefono(String telefono) {this.telefono = telefono;}
+    public void setOrdenes(Set<Orden> ordenes) {this.ordenes = ordenes;}
+    public void setContrasena(String contrasena) {this.contrasena = contrasena;}
+
+    //ADDERS
 
 }
