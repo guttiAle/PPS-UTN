@@ -137,11 +137,11 @@ public class ProductoControlador {
                 double cantidadPrecio = productoUni.getPrecio() * productoUni.getDescuento() * Integer.parseInt(parteCantidad);
                 totalCompra += cantidadPrecio;
 
+                if (productoUni.getStock()-Integer.parseInt(parteCantidad) < 0){
+                    throw new RuntimeException("No hay suficiente stock de: " + parteNombre);
+                }
             }
-
-
-
-
+            
 
 
 
