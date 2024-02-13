@@ -356,6 +356,16 @@ public class ProductoControlador {
     public ResponseEntity<Object> valorarProducto(Authentication authentication,
                                                   @RequestParam String nombre,
                                                   @RequestParam double valor){
+        Cliente cliente = clienteServicio.findByEmail(authentication.getName());
+        if (cliente == null){
+            return new ResponseEntity<>("Debes registrarte para valorar un producto", HttpStatus.FORBIDDEN);
+        }
+        if (nombre.isBlank()){
+            return new ResponseEntity<>("Falta el nombre del producto", HttpStatus.FORBIDDEN);
+        }
+        if (valor < 0 || valor > 10){
+            return new ResponseEntity<>("El puntaje debe estar entre 0 y 10", HttpStatus.FORBIDDEN);
+        }
         
         return new ResponseEntity<>("Gracias por valorar el producto!", (HttpStatus.CREATED));
     }
