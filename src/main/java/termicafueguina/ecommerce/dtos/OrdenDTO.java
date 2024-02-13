@@ -14,7 +14,7 @@ public class OrdenDTO {
     private double total;
 //    private TicketDTO ticket;
     private Set<OrdenProductoUniDTO> ordenProductoUnis;
-    private Set<OrdenProductoPesoDTO> ordenProductoPesos;
+    private Set<OrdenProductoM2DTO> ordenProductoM2s;
 
     //CONSTRUCTOR
 
@@ -26,7 +26,7 @@ public class OrdenDTO {
         this.total = orden.getTotal();
 //        this.ticket = new TicketDTO(orden.getTicket());
         this.ordenProductoUnis = orden.getOrdenProductoUnis().stream().map(opu -> new OrdenProductoUniDTO(opu)).collect(Collectors.toSet());
-        this.ordenProductoPesos = orden.getOrdenProductoPesos().stream().map(opp -> new OrdenProductoPesoDTO(opp)).collect(Collectors.toSet());
+        this.ordenProductoM2s = orden.getordenProductoM2s().stream().map(opp -> new OrdenProductoM2DTO(opp)).collect(Collectors.toSet());
 
     }
 
@@ -38,6 +38,6 @@ public class OrdenDTO {
     public double getTotal() {return total;}
 //    public TicketDTO getTicket() {return ticket;}
     public Set<OrdenProductoUniDTO> getOrdenProductoUnis() {return ordenProductoUnis;}
-    public Set<OrdenProductoPesoDTO> getOrdenProductoPesos() {return ordenProductoPesos;}
+    public Set<OrdenProductoM2DTO> getOrdenProductoM2s() {return ordenProductoM2s;}
 
 }
