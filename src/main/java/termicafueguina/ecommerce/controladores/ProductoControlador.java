@@ -66,6 +66,12 @@ public class ProductoControlador {
     public List<TipoProducto> getTiposDeProducto() {
         return TipoProducto.obtenerTiposDeProducto();
     }
+
+    @GetMapping("/api/pais-producto")
+    public List<PaisProducto> getPaaisProducto() {
+        return PaisProducto.obtenerPaisProducto();
+    }
+
 }
 
 
