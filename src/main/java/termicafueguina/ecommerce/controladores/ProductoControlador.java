@@ -226,6 +226,12 @@ public class ProductoControlador {
             headerCell4.setHorizontalAlignment(Element.ALIGN_CENTER);
             headerCell4.setFixedHeight(25f);
 
+            headerCell9.setBackgroundColor(new Color(255, 255, 255));
+            headerCell9.setBorder(com.lowagie.text.Rectangle.TOP | com.lowagie.text.Rectangle.BOTTOM | com.lowagie.text.Rectangle.LEFT | com.lowagie.text.Rectangle.RIGHT);
+            headerCell9.setBorderColor(Color.BLACK);
+            headerCell9.setHorizontalAlignment(Element.ALIGN_CENTER);
+            headerCell9.setFixedHeight(25f);
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
