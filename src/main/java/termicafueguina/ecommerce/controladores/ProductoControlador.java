@@ -372,6 +372,16 @@ public class ProductoControlador {
         ProductoUni productoUni = productoUniServicio.findByNombre(nombreProd);
         ProductoM2 productoM2 = productoM2Servicio.findByNombre(nombreProd);
 
+        if (productoUni != null && productoUni.getEstaActivo()){
+            productoUni.addPuntuacion(valor);
+            productoUniServicio.saveProductoUni(productoUni);
+        } else if(productoM2 != null && productoM2.getEstaActivo()){
+            productoM2.addPuntuacion(valor);
+            productoM2Servicio.saveProductoM2(productoM2);
+        } else {
+            return new ResponseEntity<>("Ese producto no existe, o ha sido eliminado.", HttpStatus.FORBIDDEN);
+        }
+
         return new ResponseEntity<>("Gracias por valorar el producto!", (HttpStatus.CREATED));
     }
 }
