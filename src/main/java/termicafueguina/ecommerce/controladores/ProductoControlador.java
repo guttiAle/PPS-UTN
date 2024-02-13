@@ -300,6 +300,10 @@ public class ProductoControlador {
                 pdfPCell5.setBorder(Rectangle.TOP | Rectangle.BOTTOM | Rectangle.LEFT | Rectangle.RIGHT);
                 pdfPCell5.setBorderColor(Color.BLACK);
                 pdfPCell5.setFixedHeight(40f);
+
+                pdfPCell7.setBorder(Rectangle.TOP | Rectangle.BOTTOM | Rectangle.LEFT | Rectangle.RIGHT);
+                pdfPCell7.setBorderColor(Color.BLACK);
+                pdfPCell7.setFixedHeight(40f);
             }
         } catch (Exception e) {
             e.printStackTrace();
