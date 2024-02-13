@@ -173,6 +173,17 @@ public class ProductoControlador {
 
 
     public ResponseEntity<Object> sendMail(HttpServletResponse response, Orden orden, String mailUsuario) {
+        try {
+            // Crear el documento PDF
+            Document document = new Document(PageSize.A4);
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            PdfWriter.getInstance(document, outputStream);
+            document.open();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
         return new ResponseEntity<>("Ticket enviado!", HttpStatus.CREATED);
