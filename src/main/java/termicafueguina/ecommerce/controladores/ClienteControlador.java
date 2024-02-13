@@ -36,6 +36,20 @@ public class ClienteControlador {
     public ClienteDTO getClienteActual(Authentication authentication) {
         return clienteServicio.getClienteActual(authentication);
     }
+    @PostMapping("/api/registrar-cliente")
+    public ResponseEntity<Object> register(@RequestBody ClienteRegistroDTO clienteRegistroDTO) {
 
+        Cliente nuevoCliente = new Cliente(clienteRegistroDTO.getNombre(),
+                                clienteRegistroDTO.getApellido(),
+                                clienteRegistroDTO.getEmail(),
+                                clienteRegistroDTO.getDireccion(),
+                                clienteRegistroDTO.getCiudad(),
+                                clienteRegistroDTO.getCodPostal(),
+                                clienteRegistroDTO.getTelefono(),
+                                passwordEncoder.encode(clienteRegistroDTO.getContrasena()));
+        clienteServicio.saveCliente(nuevoCliente);
+
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
 
 }
