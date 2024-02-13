@@ -29,7 +29,7 @@ public class Orden {
     private Set<OrdenProductoUni> ordenProductoUnis = new HashSet<>();
 
     @OneToMany(mappedBy="orden", fetch=FetchType.EAGER)
-    private Set<ordenProductoM2> ordenProductoM2s = new HashSet<>();
+    private Set<OrdenProductoM2> ordenProductoM2s = new HashSet<>();
 
 
     //CONSTRUCTORES
@@ -54,7 +54,7 @@ public class Orden {
     public Cliente getCliente() {return cliente;}
     public String getNumeroDeOrden(){return numeroDeOrden;}
     public Set<OrdenProductoUni> getOrdenProductoUnis() {return ordenProductoUnis;}
-    public Set<ordenProductoM2> getordenProductoM2s() {return ordenProductoM2s;}
+    public Set<OrdenProductoM2> getordenProductoM2s() {return ordenProductoM2s;}
 
     //SETTERS
     public void setFecha(LocalDateTime fecha) {this.fecha = fecha;}
@@ -66,14 +66,14 @@ public class Orden {
     public void setCliente(Cliente cliente) {this.cliente = cliente;}
     public void setNumeroDeOrden(String numeroDeOrden){this.numeroDeOrden = numeroDeOrden;}
     public void setOrdenProductoUnis(Set<OrdenProductoUni> ordenProductoUnis) {this.ordenProductoUnis = ordenProductoUnis;}
-    public void setordenProductoM2s(Set<ordenProductoM2> ordenProductoM2s) {this.ordenProductoM2s = ordenProductoM2s;}
+    public void setordenProductoM2s(Set<OrdenProductoM2> ordenProductoM2s) {this.ordenProductoM2s = ordenProductoM2s;}
 
     //ADDER
     public void addOrdenProductoUni(OrdenProductoUni ordenProductoUni){
         ordenProductoUni.setOrden(this);
         ordenProductoUnis.add(ordenProductoUni);
     }
-    public void addordenProductoM2(ordenProductoM2 ordenProductoM2) {
+    public void addordenProductoM2(OrdenProductoM2 ordenProductoM2) {
         ordenProductoM2.setOrden(this);
         ordenProductoM2s.add(ordenProductoM2);
     }
