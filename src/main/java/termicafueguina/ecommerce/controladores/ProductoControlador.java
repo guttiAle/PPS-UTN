@@ -62,7 +62,10 @@ public class ProductoControlador {
     public List<ProductoUniDTO> getProductoUni() {
         return productoUniServicio.getProductoUni().stream().filter(productoUni -> productoUni.getEstaActivo()).collect(Collectors.toList());
     }
-
+    @GetMapping("/api/tipos-producto")
+    public List<TipoProducto> getTiposDeProducto() {
+        return TipoProducto.obtenerTiposDeProducto();
+    }
 }
 
 
