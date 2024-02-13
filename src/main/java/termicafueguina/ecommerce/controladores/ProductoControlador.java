@@ -95,6 +95,10 @@ public class ProductoControlador {
 
         Double totalCompra = 0.0;
 
+        Orden orden = (new Orden(LocalDateTime.now(), false, true, totalCompra, numero));
+        cliente.addOrden(orden);
+        ordenServicio.saveNewOrden(orden);
+
     return null;
     }
 
