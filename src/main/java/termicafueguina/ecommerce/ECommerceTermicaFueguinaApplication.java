@@ -19,7 +19,7 @@ package termicafueguina.ecommerce;
 //	@Autowired
 //	private PasswordEncoder passwordEncoder;
 //	@Bean
-//	public CommandLineRunner initData(ClienteRepositorio clienteRepositorio, OrdenRepositorio ordenRepositorio, ProductoPesoRepositorio productoPesoRepositorio, ProductoUniRepositorio productoUniRepositorio, TicketRepositorio ticketRepositorio, OrdenProductoPesoRepositorio ordenProductoPesoRepositorio, OrdenProductoUniRepositorio ordenProductoUniRepositorio) {
+//	public CommandLineRunner initData(ClienteRepositorio clienteRepositorio, OrdenRepositorio ordenRepositorio, ProductoPesoRepositorio productoPesoRepositorio, ProductoUniRepositorio productoUniRepositorio, TicketRepositorio ticketRepositorio, Repositorio Repositorio, OrdenProductoUniRepositorio ordenProductoUniRepositorio) {
 //		return (args) -> {
 //			//CREACION DE CLIENTES
 //			Cliente cliente01 = (new Cliente("Juanjo", "Sepaso","juanjo@mail.com","Av. Siempreviva 123", "Springfield", 2400, "2604-112233", passwordEncoder.encode("juanjo123")));
@@ -46,13 +46,13 @@ package termicafueguina.ecommerce;
 //			//asignacion a producto
 //			productoUni01.addOrdenProductoUni(ordenProductoUni01);
 //
-//			//CREACION DE ORDENPRODUCTOPESO
-//			OrdenProductoPeso ordenProductoPeso01 = (new OrdenProductoPeso(3,14400));
+//			//CREACION DE 
+//			 01 = (new (3,14400));
 //			productoPeso01.setStock(productoPeso01.getStock()-3);
 //			//asignacion a orden
-//			orden02.addOrdenProductoPeso(ordenProductoPeso01);
+//			orden02.add(01);
 //			//asignacion a producto
-//			productoPeso01.addOrdenProductoPeso(ordenProductoPeso01);
+//			productoPeso01.add(01);
 //
 //
 //			//GUARDADO DE DATOS
@@ -70,7 +70,7 @@ package termicafueguina.ecommerce;
 //			productoUniRepositorio.save(productoUni01);
 //
 //			//orden producto
-//			ordenProductoPesoRepositorio.save(ordenProductoPeso01);
+//			Repositorio.save(01);
 //			ordenProductoUniRepositorio.save(ordenProductoUni01);
 //
 //

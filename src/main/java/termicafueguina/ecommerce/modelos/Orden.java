@@ -22,7 +22,14 @@ public class Orden {
     @JoinColumn(name="idCliente")
     private Cliente cliente;
 
+    @OneToOne(mappedBy = "orden", fetch=FetchType.EAGER)
+    private Ticket ticket;
 
+    @OneToMany(mappedBy="orden", fetch=FetchType.EAGER)
+    private Set<OrdenProductoUni> ordenProductoUnis = new HashSet<>();
+
+    @OneToMany(mappedBy="orden", fetch=FetchType.EAGER)
+    private Set<ordenProductoM2> ordenProductoM2s = new HashSet<>();
 
 
     //CONSTRUCTORES
@@ -34,6 +41,41 @@ public class Orden {
         this.envio = envio;
         this.pagado = pagado;
         this.total = total;
+    }
+
+    //GETTERS
+    public long getId() {return id;}
+    public LocalDateTime getFecha() {return fecha;}
+    public boolean getEnvio() {return envio;}
+    public boolean getPagado() {return pagado;}
+    public double getTotal() {return total;}
+    public Cliente getClient() {return cliente;}
+    public Ticket getTicket() {return ticket;}
+    public Cliente getCliente() {return cliente;}
+    public String getNumeroDeOrden(){return numeroDeOrden;}
+    public Set<OrdenProductoUni> getOrdenProductoUnis() {return ordenProductoUnis;}
+    public Set<ordenProductoM2> getordenProductoM2s() {return ordenProductoM2s;}
+
+    //SETTERS
+    public void setFecha(LocalDateTime fecha) {this.fecha = fecha;}
+    public void setEnvio(boolean envio) {this.envio = envio;}
+    public void setPagado(boolean pagado) {this.pagado = pagado;}
+    public void setTotal(double total) {this.total = total;}
+    public void setClient(Cliente cliente) {this.cliente = cliente;}
+    public void setTicket(Ticket ticket) {this.ticket = ticket;}
+    public void setCliente(Cliente cliente) {this.cliente = cliente;}
+    public void setNumeroDeOrden(String numeroDeOrden){this.numeroDeOrden = numeroDeOrden;}
+    public void setOrdenProductoUnis(Set<OrdenProductoUni> ordenProductoUnis) {this.ordenProductoUnis = ordenProductoUnis;}
+    public void setordenProductoM2s(Set<ordenProductoM2> ordenProductoM2s) {this.ordenProductoM2s = ordenProductoM2s;}
+
+    //ADDER
+    public void addOrdenProductoUni(OrdenProductoUni ordenProductoUni){
+        ordenProductoUni.setOrden(this);
+        ordenProductoUnis.add(ordenProductoUni);
+    }
+    public void addordenProductoM2(ordenProductoM2 ordenProductoM2) {
+        ordenProductoM2.setOrden(this);
+        ordenProductoM2s.add(ordenProductoM2);
     }
 
 }

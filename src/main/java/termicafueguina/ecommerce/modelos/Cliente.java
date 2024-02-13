@@ -62,5 +62,8 @@ public class Cliente {
     public void setContrasena(String contrasena) {this.contrasena = contrasena;}
 
     //ADDERS
-
+    public void addOrden(Orden orden) {
+        orden.setClient(this);
+        ordenes.add(orden);
+    }
 }
