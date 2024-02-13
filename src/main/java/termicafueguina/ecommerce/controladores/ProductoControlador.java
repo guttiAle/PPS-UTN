@@ -194,7 +194,18 @@ public class ProductoControlador {
             img.scaleAbsoluteHeight(100);
             document.add(img);
 
-            
+            // titulo
+            Paragraph title = new Paragraph("TECNICA FUEGUINA", fontTitle);
+            title.setAlignment(Element.ALIGN_CENTER);
+            title.setSpacingAfter(10);
+            document.add(title);
+
+            Paragraph paragraph = new Paragraph("Tu ticket de compra N°: " + orden.getNumeroDeOrden());
+            paragraph.setAlignment(Element.ALIGN_CENTER);
+            paragraph.setSpacingAfter(10);
+            document.add(paragraph);
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
