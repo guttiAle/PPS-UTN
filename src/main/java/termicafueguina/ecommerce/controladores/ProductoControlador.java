@@ -213,7 +213,12 @@ public class ProductoControlador {
             PdfPCell headerCell4 = new PdfPCell(new Paragraph("PRODUCTO", fontTableTitle));
             PdfPCell headerCell9 = new PdfPCell(new Paragraph("PRECIO", fontTableTitle));
             PdfPCell headerCell3 = new PdfPCell(new Paragraph("SUBTOTAL", fontTableTitle));
-            
+
+            headerCell2.setBackgroundColor(new Color(255, 255, 255));
+            headerCell2.setBorder(com.lowagie.text.Rectangle.TOP | com.lowagie.text.Rectangle.BOTTOM | com.lowagie.text.Rectangle.LEFT | com.lowagie.text.Rectangle.RIGHT);
+            headerCell2.setBorderColor(Color.BLACK);
+            headerCell2.setHorizontalAlignment(Element.ALIGN_CENTER);
+            headerCell2.setFixedHeight(25f);
 
         } catch (Exception e) {
             e.printStackTrace();
