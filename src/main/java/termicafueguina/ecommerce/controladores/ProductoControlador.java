@@ -283,7 +283,10 @@ public class ProductoControlador {
                 pdfPTable.addCell(pdfPCell6);
             }
             for (OrdenProductoM2 elemento : productoPesos) {
-
+                PdfPCell pdfPCell5 = new PdfPCell(new Paragraph(String.valueOf(elemento.getCantidadM2()) + " m2", fontBody));
+                PdfPCell pdfPCell7 = new PdfPCell(new Paragraph(elemento.getProductoM2().getNombre(), fontBody));
+                PdfPCell pdfPCell9 = new PdfPCell(new Paragraph("$" + String.valueOf(elemento.getProductoM2().getPrecio()) + " /m2", fontBody));
+                PdfPCell pdfPCell6 = new PdfPCell(new Paragraph("$" + String.valueOf(elemento.getTotal()), fontBody));
             }
         } catch (Exception e) {
             e.printStackTrace();
