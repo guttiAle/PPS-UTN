@@ -54,7 +54,10 @@ public class ProductoControlador {
     @Autowired
     private JavaMailSender mailSender;
 
-
+    @GetMapping("/api/productoPeso")
+    public List<ProductoM2DTO> getProductoPeso() {
+        return productoPesoServicio.getProductoM2().stream().filter(productoPeso -> productoPeso.getEstaActivo()).collect(Collectors.toList());
+    }
 }
 
 
