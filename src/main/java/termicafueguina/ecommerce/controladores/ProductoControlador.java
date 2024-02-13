@@ -58,6 +58,11 @@ public class ProductoControlador {
     public List<ProductoM2DTO> getProductoPeso() {
         return productoPesoServicio.getProductoM2().stream().filter(productoPeso -> productoPeso.getEstaActivo()).collect(Collectors.toList());
     }
+    @GetMapping("/api/productoUni")
+    public List<ProductoUniDTO> getProductoUni() {
+        return productoUniServicio.getProductoUni().stream().filter(productoUni -> productoUni.getEstaActivo()).collect(Collectors.toList());
+    }
+
 }
 
 
