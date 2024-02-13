@@ -246,6 +246,12 @@ public class ProductoControlador {
             Set<OrdenProductoM2> productoPesos = orden.getordenProductoM2s();
             Set<OrdenProductoUni> productoUni = orden.getOrdenProductoUnis();
 
+            for (OrdenProductoUni elemento : productoUni) {
+
+            }
+            for (OrdenProductoM2 elemento : productoPesos) {
+                
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
