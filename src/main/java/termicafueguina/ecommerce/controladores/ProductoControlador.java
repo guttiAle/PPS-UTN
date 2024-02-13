@@ -132,30 +132,16 @@ public class ProductoControlador {
                 productoM2.setStock(productoM2.getStock()-Double.parseDouble(parteCantidad));
                 orden.addordenProductoM2(ordenProductoM2);
                 productoM2.addOrdenProductoM2(ordenProductoM2);
-                ordenProductoM2Servicio.saveOrdenProductoM2(ordenProductoM2);
-        }
+                ordenProductoM2Servicio.saveOrdenProductoM2(ordenProductoM2)
+            } else if (productoUni != null) {
+                double cantidadPrecio = productoUni.getPrecio() * productoUni.getDescuento() * Integer.parseInt(parteCantidad);
+                totalCompra += cantidadPrecio;
+
+            }
 
 
 
-//
-//            } else if (productoUni != null) {
-//                double cantidadPrecio = productoUni.getPrecio() * productoUni.getDescuento() * Integer.parseInt(parteCantidad);
-//                totalCompra += cantidadPrecio;
-//
-//                if (productoUni.getStock()-Integer.parseInt(parteCantidad) < 0){
-//                    throw new RuntimeException("No hay suficiente stock de: " + parteNombre);
-//                }
-//                if (!productoUni.getEstaActivo()){
-//                    throw new RuntimeException("Este producto ha sido eliminado: " + parteNombre);
-//                }
-//                OrdenProductoUni ordenProductoUni = (new OrdenProductoUni(Integer.parseInt(parteCantidad), cantidadPrecio));
-//                productoUni.setStock(productoUni.getStock()-Integer.parseInt(parteCantidad));
-//                orden.addOrdenProductoUni(ordenProductoUni);
-//                productoUni.addOrdenProductoUni(ordenProductoUni);
-//                ordenProductoUniServicio.saveOrdenProductoUni(ordenProductoUni);
-//
-//            }
-//        }
+
 
 
 
