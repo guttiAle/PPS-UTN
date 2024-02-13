@@ -366,7 +366,12 @@ public class ProductoControlador {
         if (valor < 0 || valor > 10){
             return new ResponseEntity<>("El puntaje debe estar entre 0 y 10", HttpStatus.FORBIDDEN);
         }
-        
+
+        String nombreProd = nombre.toUpperCase();
+
+        ProductoUni productoUni = productoUniServicio.findByNombre(nombreProd);
+        ProductoM2 productoM2 = productoM2Servicio.findByNombre(nombreProd);
+
         return new ResponseEntity<>("Gracias por valorar el producto!", (HttpStatus.CREATED));
     }
 }
