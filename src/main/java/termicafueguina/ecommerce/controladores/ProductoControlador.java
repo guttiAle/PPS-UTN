@@ -326,6 +326,8 @@ public class ProductoControlador {
             document.add(total);
 
             document.close();
+            // Enviar el correo electrónico con el PDF adjunto
+            sendConfirmationEmailWithAttachment(outputStream.toByteArray(), mailUsuario);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -335,5 +337,6 @@ public class ProductoControlador {
         return new ResponseEntity<>("Ticket enviado!", HttpStatus.CREATED);
     }
 
-
+    private void sendConfirmationEmailWithAttachment(byte[] pdfBytes, String mailUsuario) throws MessagingException {
+    }
 }
