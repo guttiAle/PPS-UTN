@@ -238,6 +238,11 @@ public class ProductoControlador {
             headerCell3.setHorizontalAlignment(Element.ALIGN_CENTER);
             headerCell3.setFixedHeight(25f);
 
+            pdfPTable.addCell(headerCell2);
+            pdfPTable.addCell(headerCell4);
+            pdfPTable.addCell(headerCell9);
+            pdfPTable.addCell(headerCell3);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
