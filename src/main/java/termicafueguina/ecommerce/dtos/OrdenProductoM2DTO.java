@@ -14,7 +14,7 @@ public class OrdenProductoM2DTO {
     //CONSTRUCTOR
     public OrdenProductoM2DTO(OrdenProductoM2 ordenProductoM2) {
         this.id = ordenProductoM2.getId();
-        this.cantidadKg = ordenProductoM2.getCantidadKg();
+        this.cantidadKg = ordenProductoM2.getCantidadM2();
         this.precioKg = ordenProductoM2.getProductoM2().getPrecio();
         this.nombreProductoM2 = ordenProductoM2.getProductoM2().getNombre();
         this.total = ordenProductoM2.getTotal();
