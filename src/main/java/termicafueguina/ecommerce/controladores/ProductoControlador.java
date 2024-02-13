@@ -318,6 +318,15 @@ public class ProductoControlador {
                 pdfPTable.addCell(pdfPCell9);
                 pdfPTable.addCell(pdfPCell6);
             }
+            document.add(pdfPTable);
+
+            Paragraph total = new Paragraph("TOTAL: $" + String.valueOf(orden.getTotal()), fontBody);
+            total.setAlignment(Element.ALIGN_CENTER);
+            total.setSpacingAfter(10);
+            document.add(total);
+
+            document.close();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
