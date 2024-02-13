@@ -10,7 +10,7 @@ public class OrdenProductoM2 {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
-    private double cantidadKg;
+    private double cantidadM2;
     private double total;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="idOrden")
@@ -22,20 +22,20 @@ public class OrdenProductoM2 {
     //CONSTRUCTORES
     public OrdenProductoM2(){}
 
-    public OrdenProductoM2(double cantidadKg, double total) {
-        this.cantidadKg = cantidadKg;
+    public OrdenProductoM2(double cantidadM2, double total) {
+        this.cantidadM2 = cantidadM2;
         this.total = total;
     }
 
     //GETTERS
     public long getId() {return id;}
-    public double getCantidadKg() {return cantidadKg;}
+    public double getCantidadM2() {return cantidadM2;}
     public Orden getOrden() {return orden;}
     public ProductoM2 getProductoM2() {return productoM2;}
     public double getTotal() {return total;}
 
     //SETTERS
-    public void setCantidadKg(double cantidadKg) {this.cantidadKg = cantidadKg;}
+    public void setCantidadM2(double cantidadM2) {this.cantidadM2 = cantidadM2;}
     public void setOrden(Orden orden) {this.orden = orden;}
     public void setProductoM2(ProductoM2 productoM2) {this.productoM2 = productoM2;}
     public void setTotal(double total) {this.total = total;}
