@@ -72,6 +72,20 @@ public class ProductoControlador {
         return PaisProducto.obtenerPaisProducto();
     }
 
+    @Transactional
+    @PostMapping("/api/carrito-compra")
+    public ResponseEntity<Object> compraProducto(HttpServletResponse response, Authentication authentication, @RequestBody CarritoCompraDTO carritoCompraDTO) {
+
+        Cliente cliente = clienteServicio.findByEmail(authentication.getName());
+        String numero;
+
+        do {
+            numero = NumerosUtilidad.getNumero();
+        } while (ordenServicio.findByNumeroDeOrden(numero) != null);
+        
+    return null;
+    }
+
 }
 
 
