@@ -13,7 +13,7 @@ public class OrdenProductoM2Implementacion implements OrdenProductoM2Servicio {
     private OrdenProductoM2Repositorio ordenProductoPesoRepositorio;
 
     @Override
-    public void saveOrdenProductoPeso(OrdenProductoM2 ordenProductoPeso) {
+    public void saveOrdenProductoM2(OrdenProductoM2 ordenProductoPeso) {
         ordenProductoPesoRepositorio.save(ordenProductoPeso);
     }
 }
