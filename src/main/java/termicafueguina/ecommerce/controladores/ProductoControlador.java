@@ -108,7 +108,47 @@ public class ProductoControlador {
 
             ProductoM2 productoM2 = productoM2Servicio.findByNombre(parteNombre);
             ProductoUni productoUni = productoUniServicio.findByNombre(parteNombre);
+
+            if (productoUni == null && productoM2 == null){
+                throw new RuntimeException("No existe un produto: " + parteNombre);
+            }
         }
+
+//            if (productoM2 != null) {
+//                double cantidadPrecio1 = productoM2.getPrecio() * productoM2.getDescuento() * Double.parseDouble(parteCantidad);
+//                totalCompra += cantidadPrecio1;
+//
+//                if (productoM2.getStock()-Double.parseDouble(parteCantidad) < 0){
+//                    throw new RuntimeException("No hay suficiente stock de: " + parteNombre);
+//                }
+//                if (!productoM2.getEstaActivo()){
+//                    throw new RuntimeException("Este producto ha sido eliminado: " + parteNombre);
+//                }
+//
+//                OrdenProductoM2 ordenProductoM2 = (new OrdenProductoM2(Double.parseDouble(parteCantidad), cantidadPrecio1));
+//                productoM2.setStock(productoM2.getStock()-Double.parseDouble(parteCantidad));
+//                orden.addordenProductoM2(ordenProductoM2);
+//                productoM2.addOrdenProductoM2(ordenProductoM2);
+//                ordenProductoM2Servicio.saveOrdenProductoM2(ordenProductoM2);
+//
+//            } else if (productoUni != null) {
+//                double cantidadPrecio = productoUni.getPrecio() * productoUni.getDescuento() * Integer.parseInt(parteCantidad);
+//                totalCompra += cantidadPrecio;
+//
+//                if (productoUni.getStock()-Integer.parseInt(parteCantidad) < 0){
+//                    throw new RuntimeException("No hay suficiente stock de: " + parteNombre);
+//                }
+//                if (!productoUni.getEstaActivo()){
+//                    throw new RuntimeException("Este producto ha sido eliminado: " + parteNombre);
+//                }
+//                OrdenProductoUni ordenProductoUni = (new OrdenProductoUni(Integer.parseInt(parteCantidad), cantidadPrecio));
+//                productoUni.setStock(productoUni.getStock()-Integer.parseInt(parteCantidad));
+//                orden.addOrdenProductoUni(ordenProductoUni);
+//                productoUni.addOrdenProductoUni(ordenProductoUni);
+//                ordenProductoUniServicio.saveOrdenProductoUni(ordenProductoUni);
+//
+//            }
+//        }
 
 
 
