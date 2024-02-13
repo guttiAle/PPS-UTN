@@ -19,6 +19,21 @@ public class ClienteServicioImplementacion implements ClienteServicio {
     public List<ClienteDTO> getCliente() {
         return clienteRepositorio.findAll().stream().map(client -> new ClienteDTO(client)).collect(Collectors.toList());
     }
-
+    @Override
+    public ClienteDTO getClienteDTO(Long id) {
+        return new ClienteDTO(clienteRepositorio.findById(id).orElse(null));
+    }
+    @Override
+    public ClienteDTO getClienteActual(Authentication authentication) {
+        return new ClienteDTO(clienteRepositorio.findByEmail(authentication.getName()));
+    }
+    @Override
+    public Cliente findByEmail(String email) {
+        return clienteRepositorio.findByEmail(email);
+    }
+    @Override
+    public void saveCliente(Cliente cliente) {
+        clienteRepositorio.save(cliente);
+    }
 
 }
