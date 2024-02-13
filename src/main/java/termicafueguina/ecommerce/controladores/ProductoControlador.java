@@ -82,6 +82,13 @@ public class ProductoControlador {
         do {
             numero = NumerosUtilidad.getNumero();
         } while (ordenServicio.findByNumeroDeOrden(numero) != null);
+
+        if (cliente == null){
+            return new ResponseEntity<>("Tienes que estar logueado para realizar esta acción", HttpStatus.FORBIDDEN);
+        }
+        if (carritoCompraDTO.getProductos().size() == 0){
+            return new ResponseEntity<>("Tienes que agregar productos al carrito", HttpStatus.FORBIDDEN);
+        }
         
     return null;
     }
