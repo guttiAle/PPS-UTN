@@ -205,6 +205,15 @@ public class ProductoControlador {
             paragraph.setSpacingAfter(10);
             document.add(paragraph);
 
+//            tabla
+
+            PdfPTable pdfPTable = new PdfPTable(4);
+
+            PdfPCell headerCell2 = new PdfPCell(new Paragraph("CANTIDAD", fontTableTitle));
+            PdfPCell headerCell4 = new PdfPCell(new Paragraph("PRODUCTO", fontTableTitle));
+            PdfPCell headerCell9 = new PdfPCell(new Paragraph("PRECIO", fontTableTitle));
+            PdfPCell headerCell3 = new PdfPCell(new Paragraph("SUBTOTAL", fontTableTitle));
+            
 
         } catch (Exception e) {
             e.printStackTrace();
