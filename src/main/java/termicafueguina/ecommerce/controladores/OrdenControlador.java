@@ -22,5 +22,10 @@ public class OrdenControlador {
     @GetMapping("/api/ordenes")
         public List<OrdenDTO> getOrdenes(){return ordenServicio.getOrdenes();}
 
-
+    @GetMapping("/api/ordenes-cliente")
+    public List<OrdenDTO> getHistorialOrdenes(Authentication authentication){
+        Cliente cliente = clienteServicio.findByEmail(authentication.getName());
+        List<OrdenDTO> ordenesCliente = cliente.getOrdenes().stream().map(ordenes -> new OrdenDTO(ordenes)).collect(Collectors.toList());
+        return ordenesCliente;
+    }
 }
