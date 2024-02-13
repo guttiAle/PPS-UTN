@@ -10,9 +10,12 @@ public enum TipoProducto {
     DURLOCK,
     HORMIGON,
     LADRILLO,
+    CHAPA,
     VIDRIO,
-    PIEDRA,
-    PARQUET;
+    HERRAJES,
+    PANEL,
+    POLIURETANO,
+    HERRAMIENTAS;
 
     public static List<TipoProducto> obtenerTiposDeProducto() {
         return Arrays.asList(TipoProducto.values());
