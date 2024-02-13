@@ -144,7 +144,7 @@ public class ProductoControlador {
                 if (!productoUni.getEstaActivo()){
                     throw new RuntimeException("Este producto ha sido eliminado: " + parteNombre);
                 }
-                
+
                 OrdenProductoUni ordenProductoUni = (new OrdenProductoUni(Integer.parseInt(parteCantidad), cantidadPrecio));
                 productoUni.setStock(productoUni.getStock()-Integer.parseInt(parteCantidad));
                 orden.addOrdenProductoUni(ordenProductoUni);
@@ -153,6 +153,9 @@ public class ProductoControlador {
 
             }
         }
+
+        ResponseEntity<Object> pagarConTarjeta = PagarConTarjetaUtilidad.pagarConTarjeta(carritoCompraDTO, totalCompra);
+        
         return null;
     }
 
