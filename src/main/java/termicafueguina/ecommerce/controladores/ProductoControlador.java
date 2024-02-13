@@ -58,10 +58,12 @@ public class ProductoControlador {
     public List<ProductoM2DTO> getProductoM2() {
         return productoM2Servicio.getProductoM2().stream().filter(productoM2 -> productoM2.getEstaActivo()).collect(Collectors.toList());
     }
+
     @GetMapping("/api/productoUni")
     public List<ProductoUniDTO> getProductoUni() {
         return productoUniServicio.getProductoUni().stream().filter(productoUni -> productoUni.getEstaActivo()).collect(Collectors.toList());
     }
+
     @GetMapping("/api/tipos-producto")
     public List<TipoProducto> getTiposDeProducto() {
         return TipoProducto.obtenerTiposDeProducto();
@@ -83,10 +85,10 @@ public class ProductoControlador {
             numero = NumerosUtilidad.getNumero();
         } while (ordenServicio.findByNumeroDeOrden(numero) != null);
 
-        if (cliente == null){
+        if (cliente == null) {
             return new ResponseEntity<>("Tienes que estar logueado para realizar esta acción", HttpStatus.FORBIDDEN);
         }
-        if (carritoCompraDTO.getProductos().size() == 0){
+        if (carritoCompraDTO.getProductos().size() == 0) {
             return new ResponseEntity<>("Tienes que agregar productos al carrito", HttpStatus.FORBIDDEN);
         }
 
@@ -132,7 +134,7 @@ public class ProductoControlador {
                 productoM2.setStock(productoM2.getStock() - Double.parseDouble(parteCantidad));
                 orden.addordenProductoM2(ordenProductoM2);
                 productoM2.addOrdenProductoM2(ordenProductoM2);
-                ordenProductoM2Servicio.saveOrdenProductoM2(ordenProductoM2)
+                ordenProductoM2Servicio.saveOrdenProductoM2(ordenProductoM2);
             } else if (productoUni != null) {
                 double cantidadPrecio = productoUni.getPrecio() * productoUni.getDescuento() * Integer.parseInt(parteCantidad);
                 totalCompra += cantidadPrecio;
@@ -141,12 +143,12 @@ public class ProductoControlador {
                     throw new RuntimeException("No hay suficiente stock de: " + parteNombre);
                 }
 
-                if (!productoUni.getEstaActivo()){
+                if (!productoUni.getEstaActivo()) {
                     throw new RuntimeException("Este producto ha sido eliminado: " + parteNombre);
                 }
 
                 OrdenProductoUni ordenProductoUni = (new OrdenProductoUni(Integer.parseInt(parteCantidad), cantidadPrecio));
-                productoUni.setStock(productoUni.getStock()-Integer.parseInt(parteCantidad));
+                productoUni.setStock(productoUni.getStock() - Integer.parseInt(parteCantidad));
                 orden.addOrdenProductoUni(ordenProductoUni);
                 productoUni.addOrdenProductoUni(ordenProductoUni);
                 ordenProductoUniServicio.saveOrdenProductoUni(ordenProductoUni);
@@ -156,19 +158,25 @@ public class ProductoControlador {
 
         ResponseEntity<Object> pagarConTarjeta = PagarConTarjetaUtilidad.pagarConTarjeta(carritoCompraDTO, totalCompra);
 
-        if (pagarConTarjeta.getStatusCode() == HttpStatus.CREATED){
+        if (pagarConTarjeta.getStatusCode() == HttpStatus.CREATED) {
             orden.setTotal(totalCompra);
             ordenServicio.saveNewOrden(orden);
             String headerKey = "Content-Disposition";
             String headerValue = "attachment; filename=MB-TICKET.pdf";
             response.setHeader(headerKey, headerValue);
-
+            sendMail(response, orden, mailUsuario);
         } else {
             throw new RuntimeException("Se produjo un error");
         }
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
+
+    public ResponseEntity<Object> sendMail(HttpServletResponse response, Orden orden, String mailUsuario) {
+
+
+        return new ResponseEntity<>("Ticket enviado!", HttpStatus.CREATED);
+    }
+
+
 }
-
-
