@@ -155,8 +155,18 @@ public class ProductoControlador {
         }
 
         ResponseEntity<Object> pagarConTarjeta = PagarConTarjetaUtilidad.pagarConTarjeta(carritoCompraDTO, totalCompra);
-        
-        return null;
+
+        if (pagarConTarjeta.getStatusCode() == HttpStatus.CREATED){
+            orden.setTotal(totalCompra);
+            ordenServicio.saveNewOrden(orden);
+            String headerKey = "Content-Disposition";
+            String headerValue = "attachment; filename=MB-TICKET.pdf";
+            response.setHeader(headerKey, headerValue);
+
+        } else {
+            throw new RuntimeException("Se produjo un error");
+        }
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
 }
