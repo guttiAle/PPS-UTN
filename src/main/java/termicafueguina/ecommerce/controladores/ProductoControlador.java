@@ -188,6 +188,13 @@ public class ProductoControlador {
             Font fontBody = FontFactory.getFont(FontFactory.HELVETICA, Font.DEFAULTSIZE, new Color(0, 0, 0));
             fontBody.setSize(12);
 
+            //LOGO
+            Image img = Image.getInstance("src/main/resources/static/web/assets/images/Tecnica-Fueguina.png");
+            img.scaleAbsoluteWidth(100);
+            img.scaleAbsoluteHeight(100);
+            document.add(img);
+
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
