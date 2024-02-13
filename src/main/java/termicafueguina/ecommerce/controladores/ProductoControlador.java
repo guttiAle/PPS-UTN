@@ -105,7 +105,11 @@ public class ProductoControlador {
             String[] partes = entrada.split("-");
             String parteNombre = partes[0].toUpperCase();
             String parteCantidad = partes[1];
+
+            ProductoM2 productoM2 = productoM2Servicio.findByNombre(parteNombre);
+            ProductoUni productoUni = productoUniServicio.findByNombre(parteNombre);
         }
+
 
 
     return null;
