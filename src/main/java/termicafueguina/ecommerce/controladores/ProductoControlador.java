@@ -247,10 +247,13 @@ public class ProductoControlador {
             Set<OrdenProductoUni> productoUni = orden.getOrdenProductoUnis();
 
             for (OrdenProductoUni elemento : productoUni) {
-
+                PdfPCell pdfPCell5 = new PdfPCell(new Paragraph(String.valueOf(elemento.getCantidadUni() + " u"), fontBody));
+                PdfPCell pdfPCell7 = new PdfPCell(new Paragraph(elemento.getProductoUni().getNombre(), fontBody));
+                PdfPCell pdfPCell9 = new PdfPCell(new Paragraph("$" + String.valueOf(elemento.getProductoUni().getPrecio()) + " /u", fontBody));
+                PdfPCell pdfPCell6 = new PdfPCell(new Paragraph("$" + String.valueOf(elemento.getTotal()), fontBody));
             }
             for (OrdenProductoM2 elemento : productoPesos) {
-                
+
             }
         } catch (Exception e) {
             e.printStackTrace();
