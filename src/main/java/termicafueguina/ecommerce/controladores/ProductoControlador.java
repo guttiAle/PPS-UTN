@@ -89,7 +89,12 @@ public class ProductoControlador {
         if (carritoCompraDTO.getProductos().size() == 0){
             return new ResponseEntity<>("Tienes que agregar productos al carrito", HttpStatus.FORBIDDEN);
         }
-        
+
+
+        String mailUsuario = cliente.getEmail();
+
+        Double totalCompra = 0.0;
+
     return null;
     }
 
