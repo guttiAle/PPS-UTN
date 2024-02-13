@@ -180,6 +180,13 @@ public class ProductoControlador {
             PdfWriter.getInstance(document, outputStream);
             document.open();
 
+            // Agregar contenido al documento
+            Font fontTitle = FontFactory.getFont(FontFactory.HELVETICA, Font.DEFAULTSIZE, Font.BOLD, new Color(0, 0, 0));
+            fontTitle.setSize(16);
+            Font fontTableTitle = FontFactory.getFont(FontFactory.HELVETICA, Font.DEFAULTSIZE, new Color(0, 0, 0));
+            fontTableTitle.setSize(12);
+            Font fontBody = FontFactory.getFont(FontFactory.HELVETICA, Font.DEFAULTSIZE, new Color(0, 0, 0));
+            fontBody.setSize(12);
 
         } catch (Exception e) {
             e.printStackTrace();
