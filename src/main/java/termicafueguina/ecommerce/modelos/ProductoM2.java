@@ -6,9 +6,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
-;
+import java.util.Set;;
 
 @Entity
 public class ProductoM2 {
@@ -28,8 +26,8 @@ public class ProductoM2 {
     private boolean esPorM2;
     @ElementCollection
     private List<Double> puntuaciones = new ArrayList<>();
-    @OneToMany(mappedBy="", fetch = FetchType.EAGER)
-    private Set<Orden> ordens = new HashSet<>();
+    @OneToMany(mappedBy="productoM2", fetch = FetchType.EAGER)
+    private Set<OrdenProductoM2> ordenProductoM2s = new HashSet<>();
 
     //CONSTRUCTORES
     public ProductoM2(){}
@@ -56,7 +54,7 @@ public class ProductoM2 {
     public double getStock() {return stock;}
     public double getPrecio() {return precio;}
     public PaisProducto getOrigen() {return origen;}
-    public Set<Orden> getOrdens() {return ordens;}
+    public Set<OrdenProductoM2> getOrdenProductoM2s() {return ordenProductoM2s;}
     public List<Double> getPuntuaciones() {return puntuaciones;}
     public String getUrl() {return url;}
     public double getDescuento() {return descuento;}
@@ -70,17 +68,13 @@ public class ProductoM2 {
     public void setStock(double stock) {this.stock = stock;}
     public void setPrecio(double precio) {this.precio = precio;}
     public void setOrigen(PaisProducto origen) {this.origen = origen;}
-    public void setOrdens(Set<Orden> ordens) {this.ordens = ordens;}
+    public void setOrdenProductoM2s(Set<OrdenProductoM2> ordenProductoM2s) {this.ordenProductoM2s = ordenProductoM2s;}
     public void setPuntuaciones(List<Double> puntuaciones) {this.puntuaciones = puntuaciones;}
     public void setUrl(String url) {this.url = url;}
     public void setDescuento(double descuento) {this.descuento = descuento;}
     public void setEstaActivo(boolean estaActivo) {this.estaActivo = estaActivo;}
 
     //ADDERS
-//    public void addOrden(Orden orden) {
-//        orden.set(this);
-//        ordens.add(orden);
-//    }
     public void addOrdenProductoM2(OrdenProductoM2 ordenProductoM2) {
         ordenProductoM2.setProductoM2(this);
         ordenProductoM2s.add(ordenProductoM2);
