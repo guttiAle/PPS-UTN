@@ -40,7 +40,7 @@ public class ProductoControlador {
     @Autowired
     private ClienteServicio clienteServicio;
     @Autowired
-    private ProductoM2Servicio productoPesoServicio;
+    private ProductoM2Servicio productoM2Servicio;
     @Autowired
     private ProductoUniServicio productoUniServicio;
     @Autowired
@@ -48,15 +48,15 @@ public class ProductoControlador {
     @Autowired
     private OrdenProductoUniServicio ordenProductoUniServicio;
     @Autowired
-    private OrdenProductoM2Servicio ordenProductoPesoServicio;
+    private OrdenProductoM2Servicio ordenProductoM2Servicio;
     @Autowired
     private EmailService emailService;
     @Autowired
     private JavaMailSender mailSender;
 
     @GetMapping("/api/productoM2")
-    public List<ProductoM2DTO> getProductoPeso() {
-        return productoPesoServicio.getProductoM2().stream().filter(productoPeso -> productoPeso.getEstaActivo()).collect(Collectors.toList());
+    public List<ProductoM2DTO> getProductoM2() {
+        return productoM2Servicio.getProductoM2().stream().filter(productoM2 -> productoM2.getEstaActivo()).collect(Collectors.toList());
     }
     @GetMapping("/api/productoUni")
     public List<ProductoUniDTO> getProductoUni() {
@@ -98,6 +98,15 @@ public class ProductoControlador {
         Orden orden = (new Orden(LocalDateTime.now(), false, true, totalCompra, numero));
         cliente.addOrden(orden);
         ordenServicio.saveNewOrden(orden);
+
+
+        for (int i = 0; i < carritoCompraDTO.getProductos().size(); i++) {
+            String entrada = carritoCompraDTO.getProductos().get(i);
+            String[] partes = entrada.split("-");
+            String parteNombre = partes[0].toUpperCase();
+            String parteCantidad = partes[1];
+        }
+
 
     return null;
     }
