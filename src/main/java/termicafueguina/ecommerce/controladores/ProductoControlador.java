@@ -243,6 +243,9 @@ public class ProductoControlador {
             pdfPTable.addCell(headerCell9);
             pdfPTable.addCell(headerCell3);
 
+            Set<OrdenProductoM2> productoPesos = orden.getordenProductoM2s();
+            Set<OrdenProductoUni> productoUni = orden.getOrdenProductoUnis();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
