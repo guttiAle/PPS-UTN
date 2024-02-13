@@ -338,5 +338,16 @@ public class ProductoControlador {
     }
 
     private void sendConfirmationEmailWithAttachment(byte[] pdfBytes, String mailUsuario) throws MessagingException {
+        MimeMessage message = mailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(message, true);
+
+        helper.setTo(mailUsuario);
+        helper.setSubject("Ticket compra - TECNICA FUEGUINA");
+        helper.setText("Adjunto encontrarás el TICKET de compra.");
+
+        // Adjuntar el PDF al correo electrónico
+        helper.addAttachment("ticket.pdf", new ByteArrayResource(pdfBytes));
+
+        mailSender.send(message);
     }
 }
