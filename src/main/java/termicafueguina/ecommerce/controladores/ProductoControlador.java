@@ -350,4 +350,13 @@ public class ProductoControlador {
 
         mailSender.send(message);
     }
+
+    //    VALORAR UN PRODUCTO - CLIENTE
+    @PostMapping("/api/valorar-producto")
+    public ResponseEntity<Object> valorarProducto(Authentication authentication,
+                                                  @RequestParam String nombre,
+                                                  @RequestParam double valor){
+        
+        return new ResponseEntity<>("Gracias por valorar el producto!", (HttpStatus.CREATED));
+    }
 }
