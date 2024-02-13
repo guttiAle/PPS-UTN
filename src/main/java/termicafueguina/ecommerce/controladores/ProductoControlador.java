@@ -308,6 +308,10 @@ public class ProductoControlador {
                 pdfPCell9.setBorder(Rectangle.TOP | Rectangle.BOTTOM | Rectangle.LEFT | Rectangle.RIGHT);
                 pdfPCell9.setBorderColor(Color.BLACK);
                 pdfPCell9.setFixedHeight(40f);
+
+                pdfPCell6.setBorder(Rectangle.TOP | Rectangle.BOTTOM | Rectangle.LEFT | Rectangle.RIGHT);
+                pdfPCell6.setBorderColor(Color.BLACK);
+                pdfPCell6.setFixedHeight(40f);
             }
         } catch (Exception e) {
             e.printStackTrace();
