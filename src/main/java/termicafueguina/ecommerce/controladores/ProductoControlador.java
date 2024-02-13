@@ -251,6 +251,15 @@ public class ProductoControlador {
                 PdfPCell pdfPCell7 = new PdfPCell(new Paragraph(elemento.getProductoUni().getNombre(), fontBody));
                 PdfPCell pdfPCell9 = new PdfPCell(new Paragraph("$" + String.valueOf(elemento.getProductoUni().getPrecio()) + " /u", fontBody));
                 PdfPCell pdfPCell6 = new PdfPCell(new Paragraph("$" + String.valueOf(elemento.getTotal()), fontBody));
+
+                pdfPCell5.setHorizontalAlignment(Element.ALIGN_CENTER);
+                pdfPCell5.setVerticalAlignment(Element.ALIGN_CENTER);
+                pdfPCell7.setHorizontalAlignment(Element.ALIGN_CENTER);
+                pdfPCell7.setVerticalAlignment(Element.ALIGN_CENTER);
+                pdfPCell9.setHorizontalAlignment(Element.ALIGN_CENTER);
+                pdfPCell9.setVerticalAlignment(Element.ALIGN_CENTER);
+                pdfPCell6.setHorizontalAlignment(Element.ALIGN_CENTER);
+                pdfPCell6.setVerticalAlignment(Element.ALIGN_CENTER);
             }
             for (OrdenProductoM2 elemento : productoPesos) {
 
