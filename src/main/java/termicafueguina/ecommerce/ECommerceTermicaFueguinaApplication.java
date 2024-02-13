@@ -62,6 +62,11 @@ public class ECommerceTermicaFueguinaApplication {
 
 
             //GUARDADO DE DATOS
+            //cliente
+            clienteRepositorio.save(cliente01);
+            clienteRepositorio.save(cliente02);
+            clienteRepositorio.save(admin01);
+
             //productos
             productoM2Repositorio.save(productoM201);
             productoM2Repositorio.save(productoM202);
