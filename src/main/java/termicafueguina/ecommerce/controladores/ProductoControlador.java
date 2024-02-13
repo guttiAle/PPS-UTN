@@ -268,6 +268,10 @@ public class ProductoControlador {
                 pdfPCell7.setBorder(Rectangle.TOP | Rectangle.BOTTOM | Rectangle.LEFT | Rectangle.RIGHT);
                 pdfPCell7.setBorderColor(Color.BLACK);
                 pdfPCell7.setFixedHeight(40f);
+
+                pdfPCell9.setBorder(Rectangle.TOP | Rectangle.BOTTOM | Rectangle.LEFT | Rectangle.RIGHT);
+                pdfPCell9.setBorderColor(Color.BLACK);
+                pdfPCell9.setFixedHeight(40f);
             }
             for (OrdenProductoM2 elemento : productoPesos) {
 
